@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCTV Rewatch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <div class="panel">
+      <div class="header">
+        <div class="title" id="cameraTitle">CCTV</div>
+        <button class="close" id="closeBtn">Close</button>
+      </div>
+      <div class="image-wrap">
+        <img id="image" src="" alt="Snapshot" />
+      </div>
+      <div class="controls">
+        <button id="prevBtn">Prev</button>
+        <div class="counter" id="counter">0 / 0</div>
+        <button id="nextBtn">Next</button>
+      </div>
+      <div class="hint">Use Left/Right or click buttons. Esc closes.</div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
