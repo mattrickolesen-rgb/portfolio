@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Politi Kontakt</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app" class="app hidden">
+    <div class="app-frame">
+      <header class="app-header">
+        <div>
+          <div class="title">POLKALD</div>
+          <div class="subtitle" id="userBadge">Indlaeser...</div>
+        </div>
+        <button class="close" id="closeBtn">Luk</button>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="citizen">Borger</button>
+        <button class="tab" data-tab="staff" id="staffTab">Medarbejder</button>
+        <button class="tab" data-tab="admin" id="adminTab">Rigspolitichef</button>
+      </nav>
+
+      <section class="panel active" id="panel-citizen">
+        <div class="card">
+          <h3>Kontakt politiet</h3>
+          <p>Skriv direkte til politiet eller ring til vagtcentralen.</p>
+          <div class="message-box">
+            <textarea id="citizenMessage" placeholder="Skriv en besked..."></textarea>
+            <button class="primary" id="sendCitizen">Send besked</button>
+          </div>
+          <div class="call-row">
+            <button class="danger" id="callEmergency">AKUT 112</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Indbakke</h3>
+          <div class="log" id="messageLog"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-staff">
+        <div class="grid">
+          <div class="card">
+            <h3>Vagtlinjer</h3>
+            <p>Kun for medarbejdere med rollerne Leder eller Oeversteledelse.</p>
+            <div class="call-row">
+              <button class="secondary" id="callVagthavende">Vagthavende</button>
+              <button class="secondary" id="callVagtchef">Vagtchef</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Afdelinger</h3>
+            <p>Se alle afdelinger og kontakt hele gruppen.</p>
+            <button class="secondary" id="openDepartments">Ring afdeling</button>
+          </div>
+
+          <div class="card">
+            <h3>Ring til medarbejder</h3>
+            <div class="staff-list" id="staffList"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-departments">
+        <div class="card">
+          <div class="panel-header">
+            <h3>Afdelinger</h3>
+            <button class="ghost" id="backToStaff">Tilbage</button>
+          </div>
+          <p>Vælg en afdeling for at ringe til hele gruppen.</p>
+        </div>
+        <div class="departments" id="departmentsList"></div>
+      </section>
+
+      <section class="panel" id="panel-admin">
+        <div class="card">
+          <h3>Roller og afdelinger</h3>
+          <div class="admin-grid">
+            <input type="number" id="adminUserId" placeholder="Bruger ID" />
+            <select id="adminRole">
+              <option value="">Vaelg rolle</option>
+              <option value="Politi">Politi</option>
+              <option value="Leder">Leder</option>
+              <option value="Oeversteledelse">Oeversteledelse</option>
+            </select>
+            <select id="adminDepartment"></select>
+            <button class="primary" id="assignRole">Tildel</button>
+            <button class="ghost" id="removeRole">Fjern</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="call-card hidden" id="incomingCall">
+        <div>
+          <div class="call-title" id="callTitle">Indkommende opkald</div>
+          <div class="call-meta" id="callMeta"></div>
+        </div>
+        <div class="call-actions">
+          <button class="primary" id="answerCall">Besvar</button>
+          <button class="ghost" id="endCall">Afslut</button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
